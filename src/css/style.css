@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Diplomata+SC&family=Oswald&display=swap');
+
+.signup-box{
+    width: auto;
+    max-width: 450px;
+    height: auto;
+    margin: 5% auto;
+    text-align: center;
+}

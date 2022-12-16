@@ -1,0 +1,149 @@
+<Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        backgroundColor: "#FAFAFA",
+        gap: "30px",
+        height: "inherit",
+        overflowY: "scroll"
+      }} 
+    >
+      <Card sx={{ maxWidth: 500 }}> 
+      <CardHeader
+        avatar={
+          <Avatar sx={{bgcolor: "salmon"}} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVert />
+          </IconButton>
+        }
+        title="Shrimp and Chorizo Paella"
+        subheader="September 14, 2016"
+      />
+      <CardMedia
+        component="img"
+        height="20%"
+        image="https://www.shutterstock.com/image-photo/portrait-funny-raccoon-driving-car-260nw-1621756717.jpg"
+        alt="Paella dish"
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          This impressive paella is a perfect party dish and a fun meal to cook
+          together with your guests. Add 1 cup of frozen peas along with the mussels,
+          if you like.
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <Favorite />
+        </IconButton>
+        <IconButton aria-label="share">
+          <Share />
+        </IconButton>
+        <ExpandMore
+          // expand={expanded}
+          // onClick={handleExpandClick}
+          // aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMore />
+        </ExpandMore>
+      </CardActions>
+      </Card>
+
+      <Card sx={{ maxWidth: 500 }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{bgcolor: "salmon"}} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVert />
+          </IconButton>
+        }
+        title="Shrimp and Chorizo Paella"
+        subheader="September 14, 2016"
+      />
+      <CardMedia
+        component="img"
+        height="470"
+        image="https://www.shutterstock.com/image-photo/portrait-funny-raccoon-driving-car-260nw-1621756717.jpg"
+        alt="Paella dish"
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          This impressive paella is a perfect party dish and a fun meal to cook
+          together with your guests. Add 1 cup of frozen peas along with the mussels,
+          if you like.
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <Favorite />
+        </IconButton>
+        <IconButton aria-label="share">
+          <Share />
+        </IconButton>
+        <ExpandMore
+          // expand={expanded}
+          // onClick={handleExpandClick}
+          // aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMore />
+        </ExpandMore>
+      </CardActions>
+      </Card>
+
+      <Card sx={{ maxWidth: 500 }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{bgcolor: "salmon"}} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVert />
+          </IconButton>
+        }
+        title="Shrimp and Chorizo Paella"
+        subheader="September 14, 2016"
+      />
+      <CardMedia
+        component="img"
+        height="470"
+        image="https://www.shutterstock.com/image-photo/portrait-funny-raccoon-driving-car-260nw-1621756717.jpg"
+        alt="Paella dish"
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          This impressive paella is a perfect party dish and a fun meal to cook
+          together with your guests. Add 1 cup of frozen peas along with the mussels,
+          if you like.
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <Favorite />
+        </IconButton>
+        <IconButton aria-label="share">
+          <Share />
+        </IconButton>
+        <ExpandMore
+          // expand={expanded}
+          // onClick={handleExpandClick}
+          // aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMore />
+        </ExpandMore>
+      </CardActions>
+      </Card>
+    </Box>
