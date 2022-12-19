@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { NavBar } from "./home_page/NavBar";
 import { MainFeed } from "./home_page/MainFeed";
 import { RightBar } from "./home_page/RightBar";
@@ -12,6 +13,7 @@ import "./css/style.css"
 
 //Redux
 import { useSelector } from "react-redux";
+import { MessengerHome } from "./messenger/MessengerHome";
 
 const lightTheme = createTheme({
   status: { //add new property insite theme
@@ -76,16 +78,15 @@ function App() {
     <ThemeProvider theme={ mode ? darkTheme : lightTheme}>
       {/* <Login></Login> */}
       {/* <Register></Register> */}
-      {/* <Box>
         <Stack>
           <NavBar></NavBar>
         </Stack>
         <Stack direction="row">
           <SideBar></SideBar>
-          <MainFeed></MainFeed>
-          <RightBar></RightBar>
+          <MessengerHome></MessengerHome>
+          {/* <MainFeed></MainFeed> */}
+          {/* <RightBar></RightBar> */}
         </Stack>
-      </Box> */}
     </ThemeProvider>
   )
 }

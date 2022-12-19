@@ -20,7 +20,9 @@ const ListItemButtonEn = styled(ListItemButton)(({theme}) => ({
 }))
 
 const BoxEn = styled(Box)(({theme}) => ({
-  backgroundColor: theme.palette.primary.main
+  backgroundColor: theme.palette.primary.main,
+  borderRight : `1px solid #B2B2B2`,
+  height: "100vh"
 }))
 
 export const SideBar = () => {
@@ -38,10 +40,8 @@ export const SideBar = () => {
             sm : "none",
             md : "block"
         },  
-        borderRight: "1px solid primary.light",
-        // height: "100vh",
       }} 
-      flex={2} 
+      width="320px"
       px={2}
       py={8}
     >
