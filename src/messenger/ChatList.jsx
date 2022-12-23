@@ -1,5 +1,4 @@
 import { Avatar, Box, Divider, List, ListItem, ListItemAvatar, ListItemText, styled, Typography } from '@mui/material'
-import { margin } from '@mui/system';
 import React from 'react';
 
 const ListItemStyled = styled(ListItem)(({theme}) => ({
@@ -14,16 +13,13 @@ const ListBox = styled(List)(({theme}) => ({
     height: "auto", 
     overflowY: "scroll",
     '&::-webkit-scrollbar': {
-        width: '5px',
+        width: '1px',
+        display: "none"
     },
     '&::-webkit-scrollbar-track': {
         boxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
         webkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
     },
-    '&::-webkit-scrollbar-thumb': {
-        backgroundColor: 'gray',
-        outline: '1px solid slategrey'
-    }
 }))
 
 export const ChatList = () => {
@@ -45,7 +41,7 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="sylvie_01" src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="sylvie_01" src="https://i.pinimg.com/736x/9a/08/78/9a0878e6efe3d48871aba4717247a11c.jpg" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="sylvie_01"
@@ -59,7 +55,7 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="your_pal_paul" src="/static/images/avatar/3.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="your_pal_paul" src="https://static.boredpanda.com/blog/wp-content/uploads/2021/08/funny-goofy-racoons-pics-raccooncore-611a1adb7924b__700.jpg" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="your_pal_paul"
@@ -73,7 +69,7 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="lady_kat" src="/static/images/avatar/3.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="lady_kat" src="https://i.pinimg.com/736x/f3/bc/35/f3bc355ccf5a9a56b3ffd19fdf9691ea.jpg" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="lady_kat"
@@ -87,7 +83,7 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="hecker" src="/static/images/avatar/3.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="hecker" src="" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="hecker"
@@ -101,7 +97,7 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="your_pal_paul"
@@ -115,7 +111,7 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="your_pal_paul"
@@ -129,7 +125,7 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="your_pal_paul"
@@ -143,7 +139,7 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="your_pal_paul"
@@ -157,7 +153,203 @@ export const ChatList = () => {
             <Divider component="li" />
             <ListItemStyled alignItems="flex-start">
                 <ListItemAvatar>
-                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
+                </ListItemAvatar>
+                <ListItemText sx={{color: "text.primary", margin: "12px"}}
+                primary="your_pal_paul"
+                secondary={
+                    <React.Fragment>
+                        Active 5m ago
+                    </React.Fragment>
+                }
+                />
+            </ListItemStyled>
+            <Divider component="li" />
+            <ListItemStyled alignItems="flex-start">
+                <ListItemAvatar>
+                <Avatar sx={{height: "60px", width: "60px"}} alt="Cindy Baker" src="" />
                 </ListItemAvatar>
                 <ListItemText sx={{color: "text.primary", margin: "12px"}}
                 primary="your_pal_paul"

@@ -8,7 +8,7 @@ export const ChatBar = () => {
   return (
     <Box
       sx={{
-        height: "65%",
+        maxHeight: "630px",
         flex: 2,
         border: "1px solid #B2B2B2",
         bgcolor: "primary.main",

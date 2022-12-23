@@ -7,9 +7,15 @@ export const MessengerHome = () => {
   return (
     <Stack 
         flex="auto"
-        px={15}
+        px={{
+          xs: 0,
+          sm: 15
+        }}
         // pb={5}
-        pt={2}
+        pt={{
+          xs: 0,
+          sm: 2
+        }}
         bgcolor="primary.light"
         direction="row"
     >   
