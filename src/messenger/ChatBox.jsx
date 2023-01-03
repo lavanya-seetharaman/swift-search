@@ -1,14 +1,20 @@
 import React from 'react';
-import { Avatar, Box, InputBase, Stack, TextField, Typography } from '@mui/material';
-import { Call, FavoriteBorder, InsertEmoticonOutlined, Photo, Settings, SettingsApplications, VideoCall } from '@mui/icons-material';
+import { Avatar, Box, Fab, InputBase, Stack, TextField, Typography } from '@mui/material';
+import { Call, FavoriteBorder, InsertEmoticonOutlined, Photo, Send, Settings, SettingsApplications, VideoCall } from '@mui/icons-material';
 import { OppositeMessage } from './OppositeMessage';
 import { OwnMessage } from './OwnMessage';
+import { OppositeImages } from './OppositeImages';
+import { OwnImages } from './OwnImages';
 
 
 export const ChatBox = () => {
   return (
     <Box
       sx={{
+        display: {
+          xs: "none",
+          sm: "block"
+        },
         maxHeight: "630px",
         flex: 3,
         border: "1px solid #B2B2B2",
@@ -69,38 +75,8 @@ export const ChatBox = () => {
         <OwnMessage></OwnMessage>
         <OppositeMessage></OppositeMessage>
         <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
-        <OppositeMessage></OppositeMessage>
+        <OppositeImages></OppositeImages>
+        <OwnImages></OwnImages>
 
       </Box>
       <Box sx={{
@@ -128,8 +104,18 @@ export const ChatBox = () => {
             placeholder='Message...'
           ></InputBase>
         </Box>
-        <Photo sx={{cursor: "pointer", color: "text.primary"}}></Photo>
+
+        <label htmlFor="upload-photo" style={{marginTop: "5px"}}>
+          <TextField
+            sx={{ display: 'none' }}
+            id="upload-photo"
+            name="upload-photo"
+            type="file"
+          />
+          <Photo sx={{cursor: "pointer", color: "text.primary"}}></Photo>
+        </label>
         <FavoriteBorder sx={{cursor: "pointer", color: "text.primary"}}></FavoriteBorder>
+        <Send sx={{cursor: "pointer", color: "text.primary"}}></Send>
       </Box>
     </Box>
   )

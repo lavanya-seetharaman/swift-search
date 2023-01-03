@@ -77,16 +77,16 @@ function App() {
   return (
     <ThemeProvider theme={ mode ? darkTheme : lightTheme}>
       {/* <Login></Login> */}
-      {/* <Register></Register> */}
-        <Stack>
+      <Register></Register>
+        {/* <Stack>
           <NavBar></NavBar>
         </Stack>
         <Stack direction="row">
-          <SideBar></SideBar>
-          <MessengerHome></MessengerHome>
+          <SideBar></SideBar> */}
+          {/* <MessengerHome></MessengerHome> */}
           {/* <MainFeed></MainFeed> */}
           {/* <RightBar></RightBar> */}
-        </Stack>
+        {/* </Stack> */}
     </ThemeProvider>
   )
 }
