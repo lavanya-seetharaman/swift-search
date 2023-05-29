@@ -5,17 +5,17 @@ import { Post } from './Post';
 // const BoxEn = styled(Box)(({theme}) => ({
 //   backgroundColor: theme.status.danger
 // }))
-export const MainFeed = () => {
+export const MainFeed = ({setOpenRightBar}) => {
   return (
     <>
     <Box
       flex={6} 
-      pt={5}
-      pb={20}
+      pt={3}
+      pb={10}
       px={{xs : 0, sm : 2}}
       sx={{
           backgroundColor: "primary.light",
-          height: "110vh",
+          height: "100vh",
           overflowY: "scroll",
           '&::-webkit-scrollbar': {
             width: '5px',
@@ -38,9 +38,16 @@ export const MainFeed = () => {
           gap: "30px",
         }} 
       >
-        <Post/>
-        <Post/>
-        <Post/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
+        <Post setOpenRightBar={setOpenRightBar}/>
       </Box>
     </Box>
     </>
