@@ -1,4 +1,5 @@
 import React from 'react';
+import swiftSearchLogo from "../assets/swift-search-logos_black.png"
 import { 
     Box,
     Stack,
@@ -79,7 +80,7 @@ export const NavBar = () => {
                     {/* <IconButton size='small' aria-label='logo' sx={{bgcolor: "white", "&:hover": {bgcolor: "whitesmoke"}}}>
                         <img src={raccoon} alt="img" height="28px" width="28px" />
                     </IconButton> */}
-                    <Typography 
+                    {/* <Typography 
                         variant='h5' 
                         fontFamily="monospace"
                         sx={{
@@ -92,7 +93,21 @@ export const NavBar = () => {
                         }}
                     >
                         SWIFT SEARCH
-                    </Typography>
+                    </Typography> */}
+                    <Box sx={{
+                        height: 80,
+                        width: 300,
+                        overflow: "hidden",
+                        
+                        // border: "1px solid black"
+                    }}>
+                        <img style={{
+                            height: "100%",
+                            width: "100%",
+                            objectFit: "cover",
+                            filter: mode ? "invert(100%)"  : "invert(0)"
+                        }} src={swiftSearchLogo} alt="img" />
+                    </Box>
                 </Box>
                 <Box sx={{
                     display: "flex",

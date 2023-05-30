@@ -37,10 +37,10 @@ export const SideBar = () => {
     <Box
       component={motion.div}
       initial={{
-        flexGrow: 0
+        width: "122px"
       }}
       whileHover={{
-        flexGrow: 2
+        width: "270px"
       }}
       onMouseEnter={() => setOpenSideBar(true)}
       onMouseLeave={() => setOpenSideBar(false)} 
@@ -56,7 +56,7 @@ export const SideBar = () => {
         backgroundColor: "primary.main",
         borderRight : `1px solid #B2B2B2`,
         height: "100vh",
-        width: "90px"  
+        width: "100px"  
       }} 
       // px={2}
       py={8}
@@ -67,7 +67,6 @@ export const SideBar = () => {
         <Typography sx={{textAlign: "center", visibility: openSideBar ? "visible" : "hidden"}} color="text.primary">user@gmail.com</Typography>
       </Box>
       <List
-        sx={{ width: '100%', maxWidth: 360 }}
         component="nav"
       >
           <ListItem>

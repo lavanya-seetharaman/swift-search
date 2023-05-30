@@ -30,6 +30,16 @@ export const MainFeed = ({setOpenRightBar}) => {
           }
         }}
     >
+      <Typography sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "70%",
+        mx:  "auto",
+        py: 1
+      }} variant='body1'>
+        Results for Search Query:
+      </Typography>
       <Box
         sx={{
           display: "flex",
@@ -38,10 +48,6 @@ export const MainFeed = ({setOpenRightBar}) => {
           gap: "30px",
         }} 
       >
-        <Typography variant='body1'>
-          Results for Search Query:
-        </Typography>
-
         <Post setOpenRightBar={setOpenRightBar}/>
         <Post setOpenRightBar={setOpenRightBar}/>
         <Post setOpenRightBar={setOpenRightBar}/>
