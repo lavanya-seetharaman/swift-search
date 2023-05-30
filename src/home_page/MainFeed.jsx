@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, styled } from '@mui/material';
+import { Box, Typography, styled } from '@mui/material';
 import { Post } from './Post';
 
 // const BoxEn = styled(Box)(({theme}) => ({
@@ -38,6 +38,10 @@ export const MainFeed = ({setOpenRightBar}) => {
           gap: "30px",
         }} 
       >
+        <Typography variant='body1'>
+          Results for Search Query:
+        </Typography>
+
         <Post setOpenRightBar={setOpenRightBar}/>
         <Post setOpenRightBar={setOpenRightBar}/>
         <Post setOpenRightBar={setOpenRightBar}/>

@@ -73,14 +73,14 @@ const darkTheme = createTheme({
 
 function App() {
   const {mode} = useSelector(state => state);
-  const [ openRightBar, setOpenRightBar ] = useState(true);
+  const [ openRightBar, setOpenRightBar ] = useState(false);
 
   return (
     <ThemeProvider theme={ mode ? darkTheme : lightTheme}>
       <Routes>
         <Route path="login" element={<Login/>}/>
         <Route path="signup" element={<Register/>}/>
-        <Route path="home" element={
+        <Route path="/" element={
           <>
           <Stack>
             <NavBar></NavBar>
