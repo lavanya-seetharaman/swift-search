@@ -37,7 +37,7 @@ export const MainFeed = ({setOpenRightBar}) => {
         width: "70%",
         mx:  "auto",
         py: 1
-      }} variant='body1'>
+      }} variant='body1' color="text.primary">
         Results for Search Query:
       </Typography>
       <Box

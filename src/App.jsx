@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { NavBar } from "./home_page/NavBar";
 import { MainFeed } from "./home_page/MainFeed";
 import { RightBar } from "./home_page/RightBar";
@@ -13,7 +13,8 @@ import "./css/style.css"
 
 //Redux
 import { useSelector } from "react-redux";
-import { MessengerHome } from "./messenger/MessengerHome";
+import Home from "./home_page/Home";
+
 
 const lightTheme = createTheme({
   status: { //add new property insite theme
@@ -30,8 +31,8 @@ const lightTheme = createTheme({
       main: "#FAFAFA"
     },
     buttonPrimary: {
-      main: "#e91e63",
-      light: "#ec407a"
+      main: "#2979ff",
+      light: "#82b1ff"
     },
     text: {
       primary: "#1E1E1E",
@@ -63,45 +64,23 @@ const darkTheme = createTheme({
       black: "#1E1E1E"
     },
     buttonPrimary: {
-      main: "#e91e63",
-      light: "#ec407a"
+      main: "#2979ff",
+      light: "#82b1ff"
     }
     
   }
 })
 
-
 function App() {
-  const {mode} = useSelector(state => state);
-  const [ openRightBar, setOpenRightBar ] = useState(false);
+  const {mode, auth} = useSelector(state => state);
 
   return (
     <ThemeProvider theme={ mode ? darkTheme : lightTheme}>
       <Routes>
-        <Route path="login" element={<Login/>}/>
-        <Route path="signup" element={<Register/>}/>
-        <Route path="/" element={
-          <>
-          <Stack>
-            <NavBar></NavBar>
-          </Stack>
-          <Stack direction="row" sx={{overflowX: "hidden"}}>
-            <SideBar></SideBar>
-            <MainFeed setOpenRightBar={setOpenRightBar}></MainFeed>
-            <RightBar openRightBar={openRightBar} setOpenRightBar={setOpenRightBar}></RightBar>  
-          </Stack>
-          </>
-        }/>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/signup" element={<Register/>}/>
+        {auth.user_token ? <Route path="/swift-search" element={<Home/>}/> : <Route path="/" element={<Login/>}/>}
       </Routes>
-        {/* <Stack>
-          <NavBar></NavBar>
-        </Stack>
-        <Stack direction="row">
-          <SideBar></SideBar> */}
-          {/* <MessengerHome></MessengerHome> */}
-          {/* <MainFeed></MainFeed> */}
-          {/* <RightBar></RightBar> */}
-        {/* </Stack> */}
     </ThemeProvider>
   )
 }

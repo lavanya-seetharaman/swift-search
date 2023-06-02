@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { setMode } from '../redux/Slice';
+import { reset } from '../redux/AuthSlice';
+import { useNavigate } from 'react-router-dom';
 
 const ListItemIconEn = styled(ListItemIcon)(({theme}) => ({
   color: theme.palette.text.primary,
@@ -29,6 +31,7 @@ const BoxEn = styled(Box)(({theme}) => ({
 export const SideBar = () => {
   const {mode} = useSelector(state => state);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [ openSideBar, setOpenSideBar ] = useState(false);
 
   
@@ -126,7 +129,11 @@ export const SideBar = () => {
       </List>
       <List>
         <ListItem>
-            <ListItemButtonEn>
+            <ListItemButtonEn onClick={() => {
+              dispatch(reset())
+              navigate("/", { replace: true })
+            }
+            }>
               <ListItemIconEn>
                 <Logout/>
               </ListItemIconEn>
