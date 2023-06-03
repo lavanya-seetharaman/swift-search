@@ -8,15 +8,25 @@ import { Stack } from '@mui/material'
 function Home() {
 
   const [ openRightBar, setOpenRightBar ] = React.useState(false);
+  const [ searchQuery, setSearchQuery ] = React.useState("");
+  const [ youtubeVideoList, setYoutubeVideoList ] = React.useState([]);
 
   return (
     <>
         <Stack>
-            <NavBar></NavBar>
+            <NavBar
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            ></NavBar>
         </Stack>
         <Stack direction="row" sx={{overflowX: "hidden"}}>
             <SideBar></SideBar>
-            <MainFeed setOpenRightBar={setOpenRightBar}></MainFeed>
+            <MainFeed 
+              setOpenRightBar={setOpenRightBar}
+              youtubeVideoList={youtubeVideoList}
+              setYoutubeVideoList={setYoutubeVideoList}
+              searchQuery={searchQuery}
+            ></MainFeed>
             <RightBar openRightBar={openRightBar} setOpenRightBar={setOpenRightBar}></RightBar>  
         </Stack>
     </>

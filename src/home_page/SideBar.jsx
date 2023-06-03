@@ -29,7 +29,7 @@ const BoxEn = styled(Box)(({theme}) => ({
 }))
 
 export const SideBar = () => {
-  const {mode} = useSelector(state => state);
+  const { mode, auth } = useSelector(state => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [ openSideBar, setOpenSideBar ] = useState(false);
@@ -66,8 +66,27 @@ export const SideBar = () => {
     >
       <Box>
         <Avatar sx={{mx: "auto", height: openSideBar ? 100 : 50, width: openSideBar ? 100 : 50}}/>
-        <Typography sx={{textAlign: "center", visibility: openSideBar ? "visible" : "hidden"}} color="text.primary">username</Typography>
-        <Typography sx={{textAlign: "center", visibility: openSideBar ? "visible" : "hidden"}} color="text.primary">user@gmail.com</Typography>
+        <Typography sx={{
+            textAlign: "center",
+            width: openSideBar ? "auto" : "50px", 
+            display: openSideBar ? "block" : "none",
+            overflow: "hidden"
+          }} 
+          color="text.primary"
+        >
+          {auth.username}
+        </Typography>
+        <Typography sx={{
+            textAlign: "center", 
+            width: openSideBar ? "auto" : "50px", 
+            display: openSideBar ? "block" : "none", 
+            overflow: "hidden"
+          }} 
+          color="text.primary"
+          fontSize={13}
+        >
+          {auth.user_email}
+        </Typography>
       </Box>
       <List
         component="nav"

@@ -55,7 +55,7 @@ export const Register = () => {
       setIsFormDataError(prev => ({...prev, email: true}))
     }
 
-    if(formData.password.length < 6 || formData.password.length > 18 || !/^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,16}$/.test(formData.password)){
+    if(formData.password.length > 18 ){
       result = true;
       setIsFormDataError(prev => ({...prev, password: true}))
     }
@@ -165,7 +165,7 @@ export const Register = () => {
               // required
               onChange={handleChange}
               error={isFormDataError.password}
-              helperText={isFormDataError.password && "Password is required and characters must be less than 10"}
+              helperText={isFormDataError.password && "Password is required and character length must be less than 18"}
               InputProps={{
                 endAdornment: <InputAdornment position="end">{hidePassword ? 
                   <IconButton onClick={() => setHidePassword(false)}>

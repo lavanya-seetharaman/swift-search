@@ -1,11 +1,14 @@
 import React from 'react';
 import { Box, Typography, styled } from '@mui/material';
 import { Post } from './Post';
+import { useSelector } from 'react-redux';
+import { BASE_URL } from '../lib/constants/constants';
 
 // const BoxEn = styled(Box)(({theme}) => ({
 //   backgroundColor: theme.status.danger
 // }))
-export const MainFeed = ({setOpenRightBar}) => {
+export const MainFeed = ({setOpenRightBar, youtubeVideoList, setYoutubeVideoList, searchQuery}) => {
+    
   return (
     <>
     <Box
