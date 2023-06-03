@@ -50,7 +50,7 @@ export const Register = () => {
       setIsFormDataError(prev => ({...prev, username: true}))
     }
 
-    if(formData.email.length === 0 || formData.email.length > 20 || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)){
+    if(formData.email.length === 0 || formData.email.length > 50 || !/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i.test(formData.email)){
       result = true;
       setIsFormDataError(prev => ({...prev, email: true}))
     }
@@ -220,7 +220,7 @@ export const Register = () => {
             {err.error && <Alert severity='error' sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>{err.message}</Alert>}
         </Stack>
         </form>
-        <Typography p={2} variant='body1'>Have account already? <Link to="/login" style={{color: "black"}}>Login</Link></Typography>
+        <Typography p={2} variant='body1'>Have account already? <Link to="/" style={{color: "black"}}>Login</Link></Typography>
       </Card>
     </Box>
   )
