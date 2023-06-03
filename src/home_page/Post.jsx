@@ -5,6 +5,8 @@ import { FavoriteBorderSharp, MoreVert, MapsUgcSharp, SendOutlined, Favorite, Bo
 import dayjs from 'dayjs';
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { storeVideoId } from '../redux/DataSlice';
 
 // const IconButtonEn = styled(IconButton)(() => ({
 //     color: "text.primary"
@@ -13,17 +15,13 @@ import { Link } from 'react-router-dom';
 export const Post = ({setOpenRightBar, values}) => {
 
   dayjs.extend(relativeTime)
+  const dispatch = useDispatch();
   let { description, channelTitle, publishedAt, videoUrl, videoTitle, thumbnails, videoId } = values;
 //   console.log(relativeTime);
 
-  async function getVideoTrancriptionData(){
-    try{
-        setOpenRightBar(true)
-        
-
-    }catch(error){
-      console.log(error);
-    }
+async function getVideoTrancriptionData(){
+    dispatch(storeVideoId(videoId))
+    setOpenRightBar(true)
   }
 
 
@@ -62,7 +60,7 @@ export const Post = ({setOpenRightBar, values}) => {
             <Typography variant="body2">
                 {description}
             </Typography>
-            <Link to={videoUrl}><Typography>Watch on Youtube</Typography></Link>
+            <Link to={videoUrl} target='_blank'><Typography component="span">Watch on Youtube</Typography></Link>
         </CardContent>
     </Card>
   )

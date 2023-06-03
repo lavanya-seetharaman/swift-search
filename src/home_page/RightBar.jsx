@@ -19,7 +19,14 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
       flexGrow: 4,
     },
   }
-  const { auth } = useSelector(state => state);
+  const { auth, data: videoId } = useSelector(state => state);
+  const [ videoTranscript, setVideoTranscript ] = React.useState({
+    error: false,
+    errorMessage: "",
+    success: false,
+    loading: false,
+    data: {}
+  })
   const [ transcriptedString, setTranscriptedString ] = React.useState({
     error: false,
     errorMessage: "",
@@ -27,6 +34,33 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
     loading: false,
     data: {}
   });
+
+
+  // React.useEffect(() => {
+  //   (async () => {
+  //     // let raw = JSON.stringify({videoId: videoId.videoId})
+  //     try{
+  //       setVideoTranscript(prev => ({...prev, success: false, loading: true, error: false, errorMessage: "", data: {}}));
+  //       const { data, status } = await axios({
+  //         method: 'post',
+  //         maxBodyLength: Infinity,
+  //         url: `${BASE_URL}/v1/getaudio`,
+  //         headers: { 
+  //           'Authorization': `Bearer ${auth.user_token}`
+  //         },
+  //         data : {videoId: videoId.videoId}
+  //       })
+
+  //       if(status === 200){
+  //         setTranscriptedString(prev => ({...prev, loading: false, data: data, success: true}));
+  //       }
+  //     }catch(error){
+  //       setTranscriptedString(prev => ({...prev, loading: false, error: true, errorMessage: error.response.data.message}));
+  //       console.log(error);
+  //     }
+  //   })()
+  // }, [videoId.videoId]);
+
 
   async function summarizeText(text){
 
@@ -55,18 +89,18 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
   }
 
 
-  let jsx;
+  let summaryText;
 
   if(transcriptedString.loading){
-    jsx = (<div className="loader"></div>)
+    summaryText = (<div className="loader"></div>)
   }
   
   if(transcriptedString.error){
-    jsx = (<Typography variant='subtitle2'>{transcriptedString.errorMessage}</Typography>)
+    summaryText = (<Typography variant='subtitle2'>{transcriptedString.errorMessage}</Typography>)
   }
 
   if(transcriptedString.success){
-    jsx = (
+    summaryText = (
       <Box 
         sx={{
           p: 2, 
@@ -82,6 +116,35 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
       </Box>)
   }
 
+
+  let transcript = "";
+
+  if(videoTranscript.loading){
+    transcript = (<div className="loader"></div>)
+  }
+
+  if(videoTranscript.error){
+    transcript = (<Typography variant='subtitle2'>{videoTranscript.errorMessage}</Typography>)
+
+  }
+
+  if(videoTranscript.success){
+    transcript = (
+      <Box 
+        sx={{
+          p: 2, 
+          border: "1px solid #B2B2B2",
+          backgroundColor: "primary.main"
+
+        }}
+      >
+          <Typography>Video transcription:</Typography>    
+          <Typography color="text.secondary">
+            {videoTranscript.data.text}
+          </Typography>
+      </Box>)
+  }
+
   return (
     <Box
       component={motion.div}
@@ -92,7 +155,6 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
         flexDirection: "column",
         backgroundColor: "primary.light",
         borderLeft: "1px solid #B2B2B2",
-        border: "1px solid black",
         maxHeight: "90vh",
         color: "text.primary",
         overflowY: "scroll", 
@@ -131,20 +193,7 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
             </IconButton>
           </Box>
 
-          <Box sx={{
-            p: 2, 
-            border: "1px solid #B2B2B2",
-            backgroundColor: "primary.main"
-          }}>
-              <Typography>Video transcription:</Typography>    
-              <Typography color="text.secondary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime sed facilis delectus eligendi, quod adipisci maiores iusto, minus ipsa labore ab mollitia quas incidunt dignissimos magnam suscipit laudantium in.
-              </Typography>
-              <Typography color="text.secondary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime sed facilis delectus eligendi, quod adipisci maiores iusto, minus ipsa labore ab mollitia quas incidunt dignissimos magnam suscipit laudantium in.
-              </Typography>
-              
-          </Box>
+          {transcript}
           
           <Button 
             sx={{color: "white"}} 
@@ -155,7 +204,7 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
             Summarize it
           </Button>
 
-          {jsx}
+          {summaryText}
         </>
       )}
     </Box>
