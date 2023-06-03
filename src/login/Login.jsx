@@ -44,7 +44,7 @@ export const Login = () => {
   function validateFormData(){
     let result = false;
 
-    if(formData.email.length === 0 || formData.email.length > 20 || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)){
+    if(formData.email.length === 0 || formData.email.length > 50 || !/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i.test(formData.email)){
       result = true;
       setIsFormDataError(prev => ({...prev, email: true}));
     }
