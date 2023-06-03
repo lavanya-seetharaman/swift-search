@@ -2,28 +2,67 @@ import React from 'react';
 import cardImage from "../assets/card-image.png";
 import { Avatar, Stack, Card, CardActions, CardContent, CardHeader, CardMedia, Checkbox, IconButton, styled, Typography } from '@mui/material';
 import { FavoriteBorderSharp, MoreVert, MapsUgcSharp, SendOutlined, Favorite, Bookmark, BookmarkBorder } from '@mui/icons-material';
+import dayjs from 'dayjs';
+import relativeTime from "dayjs/plugin/relativeTime";
+import { Link } from 'react-router-dom';
 
 // const IconButtonEn = styled(IconButton)(() => ({
 //     color: "text.primary"
 // }))
 
-export const Post = ({setOpenRightBar}) => {
+export const Post = ({setOpenRightBar, values}) => {
+
+  dayjs.extend(relativeTime)
+  let { description, channelTitle, publishedAt, videoUrl, videoTitle, thumbnails, videoId } = values;
+//   console.log(relativeTime);
+
+  async function getVideoTrancriptionData(){
+    try{
+        setOpenRightBar(true)
+        
+
+    }catch(error){
+      console.log(error);
+    }
+  }
+
+
   return (
-    <Card onClick={() => setOpenRightBar(true)} elevation={0} sx={{display: "flex", flexDirection: "row", p: 1, border: "1px solid #B2B2B2", cursor: "pointer"}}> 
+    <Card 
+        onClick={getVideoTrancriptionData}
+        elevation={0} 
+        sx={{
+            display: "flex", 
+            flexDirection: "row", 
+            p: 1, 
+            border: "1px solid #B2B2B2", 
+            cursor: "pointer",
+            width: "100%"
+        }}
+    > 
         <CardMedia
             sx={{width: 300, borderRadius: 1}}
             component="img"
             height="150px"
-            image={cardImage}
+            image={thumbnails.high.url}
             alt="img"
         /> 
         <CardContent>
             <Typography variant='body1' sx={{fontWeight: "bold"}}>
-                Best Nostalgia Video Games Music / Realxing Music Game for Studying, Sleep, Work
+                {videoTitle}
             </Typography>
+            <Stack direction="row" alignItems="center" spacing={5}>
+                <Typography color="text.secondary" variant="subtitle2">
+                    From: {channelTitle}
+                </Typography>
+                <Typography color="text.secondary" variant="subtitle2">
+                    {dayjs().to(dayjs(publishedAt))}
+                </Typography>
+            </Stack>
             <Typography variant="body2">
-                This impressive paella is a perfect party dish and a fun meal to cook
+                {description}
             </Typography>
+            <Link to={videoUrl}><Typography>Watch on Youtube</Typography></Link>
         </CardContent>
     </Card>
   )

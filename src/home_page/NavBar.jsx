@@ -64,26 +64,36 @@ const ListItemIconEn = styled(ListItemIcon)(({theme}) => ({
     borderRadius: "50px",
   }))
 
-export const NavBar = ({searchQuery, setSearchQuery}) => {
+export const NavBar = ({searchQuery, setSearchQuery, setYoutubeVideoList}) => {
 
   const { mode, auth } = useSelector(state => state);
   const dispatch = useDispatch();
 
   const getYoutubeVideoList = async () => {
-    try{
-
-      const response = await axios({
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: `${BASE_URL}/v1/search?search_query=${searchQuery}`,
-        headers: { 
-          'Authorization': `Bearer ${auth.user_token}`
+    if(searchQuery && searchQuery.length !== 0){
+        try{
+            setYoutubeVideoList(prev => ({...prev, success: false, loading: true, error: false, errorMessage: "", data: []}));
+            const { data, status } = await axios({
+                method: 'post',
+                maxBodyLength: Infinity,
+                url: `${BASE_URL}/v1/search`,
+                headers: { 
+                    'Authorization': `Bearer ${auth.user_token}`
+                },
+                data: {
+                    email: auth.user_email,
+                    searchQuery
+                }
+            })
+    
+            // console.log(response);
+            if(status === 200){
+                setYoutubeVideoList(prev => ({...prev, loading: false, data: data, success: true}));
+            }
+        }catch(error){
+            setYoutubeVideoList(prev => ({...prev, loading: false, error: true, errorMessage: error.response.data.message}));
+            console.log(error);
         }
-      })
-
-      console.log(response);
-    }catch(error){
-      console.log(error);
     } 
   }
 
@@ -118,6 +128,11 @@ export const NavBar = ({searchQuery, setSearchQuery}) => {
                             placeholder='Search...'
                             value={searchQuery}
                             onChange={(e) => {setSearchQuery(e.target.value)}}
+                            onKeyUp={(e) => {
+                                if(e.key === "Enter"){
+                                    getYoutubeVideoList()
+                                }
+                            }}
                         ></InputBase>
                         <IconButton onClick={getYoutubeVideoList}>
                             <SearchOutlined/>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavBar } from './NavBar'
 import { SideBar } from './SideBar'
 import { MainFeed } from './MainFeed'
@@ -9,7 +9,13 @@ function Home() {
 
   const [ openRightBar, setOpenRightBar ] = React.useState(false);
   const [ searchQuery, setSearchQuery ] = React.useState("");
-  const [ youtubeVideoList, setYoutubeVideoList ] = React.useState([]);
+  const [ youtubeVideoList, setYoutubeVideoList ] = React.useState({
+    error: false,
+    errorMessage: "",
+    success: false,
+    loading: false,
+    data: []
+  });
 
   return (
     <>
@@ -17,6 +23,7 @@ function Home() {
             <NavBar
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
+              setYoutubeVideoList={setYoutubeVideoList}
             ></NavBar>
         </Stack>
         <Stack direction="row" sx={{overflowX: "hidden"}}>
@@ -24,10 +31,13 @@ function Home() {
             <MainFeed 
               setOpenRightBar={setOpenRightBar}
               youtubeVideoList={youtubeVideoList}
-              setYoutubeVideoList={setYoutubeVideoList}
               searchQuery={searchQuery}
             ></MainFeed>
-            <RightBar openRightBar={openRightBar} setOpenRightBar={setOpenRightBar}></RightBar>  
+            <RightBar 
+              openRightBar={openRightBar} 
+              setOpenRightBar={setOpenRightBar}
+              youtubeVideoList={youtubeVideoList}
+            ></RightBar>  
         </Stack>
     </>
   )

@@ -142,7 +142,7 @@ export const Register = () => {
               // required 
               onChange={handleChange}
               error={isFormDataError.username}
-              helperText={isFormDataError.username && "Username should not include any space and the character must be alphanumerics and less than 20 characters"}
+              helperText={isFormDataError.username && "Usernames can only contain alphanumeric characters and should be less than 20 characters in length"}
             />
             <TextField
               name="email" 
