@@ -62,6 +62,68 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
   // }, [videoId.videoId]);
 
 
+  // React.useEffect(() => {
+  //   (async () => {
+
+  //     let data = new FormData();
+  //     data.append("url", "https://rr7---sn-gwpa-h55e7.googlevideo.com/videoplayback?expire=1685876439&ei=dxp8ZIiGLLiV3LUP2-m1uA0&ip=49.43.249.57&id=o-ADi_0ZLttQrCslzf5pgzpVJ07TjSHoqheGzRtf2VzA5A&itag=251&source=youtube&requiressl=yes&mh=BG&mm=31%2C26&mn=sn-gwpa-h55e7%2Csn-cvhelnls&ms=au%2Conr&mv=m&mvi=7&pl=21&initcwndbps=811250&spc=qEK7BzNgfM7_rn_9TzD9MjgFYfoM_YSBbl10zmtD6w&vprv=1&svpuc=1&mime=audio%2Fwebm&ns=2kmQj2Vxwmfiy5OzUu4jnu8N&gir=yes&clen=1129540&dur=70.541&lmt=1442570144686061&mt=1685854359&fvip=2&keepalive=yes&fexp=24007246%2C24363392%2C51000014&beids=24350018&c=WEB&n=GDQNA7U0EtB8vA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAIFS45UipJ6TO2q8ptzjMMfc9uR3Ru0ZPFQRFwLXwMulAiEA_KziUf-0M2VnRspwGSFjIygUFyE97vbT71dMnj-cYD0%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgGLN1pKsyqJa2sSlLBOtz-NJShqLhavzhqFWXDbqtmBwCIDz21VZCVssuQAYpxZ73J8IxkgttNLW5niJmiVBnwbNn");
+  //     let config = {
+  //       method: "post",
+  //       maxBodyLength: Infinity,
+  //       url: "https://transcribe.whisperapi.com",
+  //       headers: {
+  //         Authorization: `Bearer 8W12U3XRLI8ZJSLTY9DTIMCQDLHLDHRX`,
+  //       },
+  //       data: data,
+  //     };
+
+  //     try{
+  //       const response = await axios(config);
+  //       console.log(response);
+  //     }catch(error){
+  //       console.log(error);
+  //     }
+  //     // await axios
+  //     //   .request(config)
+  //     //   .then((response) => {
+  //     //     // result_txt = {
+  //     //     //   text: response.data.text,
+  //     //     //   language: response.data.language,
+  //     //     // };
+  //     //     console.log(response);
+  //     //   })
+  //     //   .catch((error) => {
+  //     //     console.log(error);
+  //     //     // return error;
+  //     //   });
+  //     // return result_txt;
+  //   })()
+  // }, [])
+
+  React.useState(() => {
+    (async () => {
+      let myHeaders = new Headers();
+      myHeaders.append("Authorization", "Bearer 8W12U3XRLI8ZJSLTY9DTIMCQDLHLDHRX");
+
+      let formdata = new FormData();
+      formdata.append("url", "https://rr7---sn-gwpa-h55e7.googlevideo.com/videoplayback?expire=1685876439&ei=dxp8ZIiGLLiV3LUP2-m1uA0&ip=49.43.249.57&id=o-ADi_0ZLttQrCslzf5pgzpVJ07TjSHoqheGzRtf2VzA5A&itag=251&source=youtube&requiressl=yes&mh=BG&mm=31%2C26&mn=sn-gwpa-h55e7%2Csn-cvhelnls&ms=au%2Conr&mv=m&mvi=7&pl=21&initcwndbps=811250&spc=qEK7BzNgfM7_rn_9TzD9MjgFYfoM_YSBbl10zmtD6w&vprv=1&svpuc=1&mime=audio%2Fwebm&ns=2kmQj2Vxwmfiy5OzUu4jnu8N&gir=yes&clen=1129540&dur=70.541&lmt=1442570144686061&mt=1685854359&fvip=2&keepalive=yes&fexp=24007246%2C24363392%2C51000014&beids=24350018&c=WEB&n=GDQNA7U0EtB8vA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAIFS45UipJ6TO2q8ptzjMMfc9uR3Ru0ZPFQRFwLXwMulAiEA_KziUf-0M2VnRspwGSFjIygUFyE97vbT71dMnj-cYD0%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgGLN1pKsyqJa2sSlLBOtz-NJShqLhavzhqFWXDbqtmBwCIDz21VZCVssuQAYpxZ73J8IxkgttNLW5niJmiVBnwbNn");
+
+      let requestOptions = {
+        method: 'POST',
+        mode: 'cors',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+      };
+
+      fetch("https://transcribe.whisperapi.com", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    })()
+  },[])
+
+
   async function summarizeText(text){
 
     let raw = JSON.stringify({ transcribe_txt: text });
