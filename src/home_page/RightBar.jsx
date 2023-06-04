@@ -38,36 +38,38 @@ export const RightBar = ({openRightBar, setOpenRightBar, youtubeVideoList}) => {
   console.log(videoTranscript);
 
   React.useEffect(() => {
-    (async () => {
-      let raw = JSON.stringify({
-        "data": [
-          videoDetails.video.videoUrl
-        ]
-      });
-      
-      let config = {
-        method: 'post',
-        maxBodyLength: Infinity,
-        url: 'https://lavan2012-free-fast-youtube-url-video-to-text-us-642486d.hf.space/run/transcribetext',
-        headers: { 
-          'Content-type': 'application/json'
-        },
-        data : raw
-      };
-
-      try{
-        setTranscriptedString(prev => ({...prev, success: false, loading: false, error: false, errorMessage: "", data: {}}));
-        setVideoTranscript(prev => ({...prev, success: false, loading: true, error: false, errorMessage: "", data: {}}));
-        let { data, status } = await axios(config);
-
-        if(status === 200){
-          setVideoTranscript(prev => ({...prev, loading: false, data: data.data[0], success: true}));
+    if(videoDetails.video.videoUrl){
+      (async () => {
+        let raw = JSON.stringify({
+          "data": [
+            videoDetails.video.videoUrl
+          ]
+        });
+        
+        let config = {
+          method: 'post',
+          maxBodyLength: Infinity,
+          url: 'https://lavan2012-free-fast-youtube-url-video-to-text-us-642486d.hf.space/run/transcribetext',
+          headers: { 
+            'Content-type': 'application/json'
+          },
+          data : raw
+        };
+  
+        try{
+          setTranscriptedString(prev => ({...prev, success: false, loading: false, error: false, errorMessage: "", data: {}}));
+          setVideoTranscript(prev => ({...prev, success: false, loading: true, error: false, errorMessage: "", data: {}}));
+          let { data, status } = await axios(config);
+  
+          if(status === 200){
+            setVideoTranscript(prev => ({...prev, loading: false, data: data.data[0], success: true}));
+          }
+        }catch(error){
+          setVideoTranscript(prev => ({...prev, loading: false, error: true, errorMessage: "Sorry, An error happened on our side"}));
+          console.log(error);
         }
-      }catch(error){
-        setVideoTranscript(prev => ({...prev, loading: false, error: true, errorMessage: "Sorry, An error happened on our side"}));
-        console.log(error);
-      }
-    })()
+      })()
+    }
   }, [videoDetails.video.videoUrl])
 
 
