@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setMode } from '../redux/Slice';
 import { reset } from '../redux/AuthSlice';
 import { useNavigate } from 'react-router-dom';
+import SavedQueriesModal from './SavedQueriesModal';
 
 const ListItemIconEn = styled(ListItemIcon)(({theme}) => ({
   color: theme.palette.text.primary,
@@ -103,7 +104,7 @@ export const SideBar = () => {
                   overflow: "hidden",
                   whiteSpace: "nowrap"
                 }} 
-                primary="Saved query" />
+                primary={<SavedQueriesModal setOpenSideBar={setOpenSideBar}/>} />
             </ListItemButtonEn>
           </ListItem>
           <ListItem>

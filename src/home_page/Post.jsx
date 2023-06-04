@@ -20,7 +20,7 @@ export const Post = ({setOpenRightBar, values}) => {
 //   console.log(relativeTime);
 
 async function getVideoTrancriptionData(){
-    dispatch(storeVideoId(videoId))
+    dispatch(storeVideoId({videoUrl, videoTitle}))
     setOpenRightBar(true)
   }
 

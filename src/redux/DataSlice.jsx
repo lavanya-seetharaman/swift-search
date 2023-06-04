@@ -7,7 +7,7 @@ export const dataSlice = createSlice({
     initialState,
     reducers : {
         storeVideoId : (state, action) => {
-            return {...state, videoId: action.payload}
+            return {...state, video: action.payload}
         },
 
         reset: (state, action) => {
