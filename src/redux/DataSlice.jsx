@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {}
+const initialState = { }
 
 export const dataSlice = createSlice({
     name : "data",
@@ -10,12 +10,12 @@ export const dataSlice = createSlice({
             return {...state, video: action.payload}
         },
 
-        reset: (state, action) => {
+        resetData: (state, action) => {
             return initialState
         }
     }
 })
 
 
-export const {storeVideoId, reset} = dataSlice.actions;
+export const {storeVideoId, resetData} = dataSlice.actions;
 export const dataReducer = dataSlice.reducer;

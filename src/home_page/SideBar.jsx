@@ -10,6 +10,7 @@ import { setMode } from '../redux/Slice';
 import { reset } from '../redux/AuthSlice';
 import { useNavigate } from 'react-router-dom';
 import SavedQueriesModal from './SavedQueriesModal';
+import { resetData } from '../redux/DataSlice';
 
 const ListItemIconEn = styled(ListItemIcon)(({theme}) => ({
   color: theme.palette.text.primary,
@@ -151,6 +152,7 @@ export const SideBar = () => {
         <ListItem>
             <ListItemButtonEn onClick={() => {
               dispatch(reset())
+              dispatch(resetData())
               navigate("/", { replace: true })
             }
             }>
